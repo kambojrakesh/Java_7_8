@@ -1,0 +1,13 @@
+Factory Design
+	
+	1. Factory Design Pattern Examples in JDK:-
+	
+	java.util.Calendar, ResourceBundle and NumberFormat getInstance() methods uses Factory pattern.
+	valueOf() method in wrapper classes like Boolean, Integer etc.
+	
+	2. Class Registration - using reflection
+	If you can use reflection, for example in Java or .NET languages, you can register new product classes to the factory without even changing the factory itself
+	
+	3. https://www.oodesign.com/factory-pattern.html
+	
+	4. 
