@@ -1,3 +1,6 @@
+
+
+
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -8,67 +11,66 @@ import java.util.regex.*;
 
 public class Test {
 
-   public static void main(String h0[]){
-	   
-	   
-	   int q[] ={2,1,5,3,4};
-	   //int q[] = {2 ,5, 1 ,3 ,4};
-	   //int q[]={5,1 ,2, 3, 7, 8, 6, 4};
-	  // int q[]={1 ,2 ,5 ,3 ,7 ,8 ,6 ,4};
-	   int length = q.length;
-       int[] a1 = new int[length]; 
-       int h =1;int q23 =0;boolean h1= false;
-       HashMap<Integer,Integer> hs = new HashMap();
-       for(int j =0; j < length-1; j++){
-	       for(int i =0; i < length-1; i++){
-	           int temp = 0;
-	           
-	           if(q[i] > q[i+1]){
-	        	   
-	        	   if(hs.get(q[i])!= null && hs.get(q[i]) < 2){
-	        		   h=h+1;
-	        		   //System.out.println(h);
-	        	   }
-	        	   hs.put(q[i],h);
-	        	   hs.put(q[i+1],h);
-	        	  // System.out.println(q[i]+"===="+hs.get(q[i]));
-	        	   if(hs.get(q[i]) < 2){
-	        		   
-	        		   temp = q[i+1] ;
-		               q[i+1] = q[i];
-		               q[i] = temp; 
-	        	   }
-	        	   
-	        	   
-	        	   
-	               if(hs.get(q[i])<=2){
-	            	   q23=q23+hs.get(q[i]);
-	               } 
-	              // System.out.println(q[i] +"=="+hs.get(q[i]));
-	        	   
-	        	   
-	        	   
-	           }
-	       }
-      }
-
-       for(int i =0; i < length; i++){
-           //System.out.println(i+1 +"====="+q[i]);
-            if(q[i] == i+1 ){
-                 h1 = true;
-            } else{
-                h1 = false;
-                break;
-            }
-          // break;
-       }
-       
-       if(h1){
-            System.out.println(q23-1);
-        } else{
-            System.out.println("Too chaotic");
+    // Complete the minimumSwaps function below.
+    static int minimumSwaps(int[] arr) {
+        
+    Integer[] wrappedInts = Arrays.stream(arr)
+                              .boxed()
+                              .toArray(Integer[]::new);
+        List<Integer> numbersList = Arrays.asList(wrappedInts);
+        Map<Integer,Integer> numbersWithIndex = new TreeMap<Integer,Integer>();
+        for( int i =0; i<numbersList.size();i++){
+            int num = numbersList.get(i);
+            numbersWithIndex.put(num,i);
         }
-       
-   }
-   
+        int count = 0;
+        int swapsTaken = 0;
+        for (Map. Entry<Integer, Integer> entry : numbersWithIndex.entrySet()) {
+            //System. out. println("lowestNum = " + entry. getKey() + ", indexOfLowestNum = " + entry. getValue());
+            int lowestNum = entry.getKey();
+            int indexOfLowestNum = entry.getValue();
+            System.out.println("");
+            System.out.print("lowestNum::"+lowestNum+" arr[count]::"+arr[count]+"  indexOfLowestNum::"+indexOfLowestNum+"   count::"+count);
+            System.out.println("");
+           /* lowestNum = 1, indexOfLowestNum = 2
+            lowestNum = 2, indexOfLowestNum = 3
+            lowestNum = 3, indexOfLowestNum = 1
+            lowestNum = 4, indexOfLowestNum = 0*/
+            if( lowestNum != arr[count]){ //SwapElements
+                int temp = arr[count];
+                arr[count]=lowestNum;
+                arr[indexOfLowestNum]=temp;
+                numbersWithIndex.put(lowestNum,count);
+                numbersWithIndex.put(temp,indexOfLowestNum);
+                swapsTaken++;             
+            }
+            System.out.println("");
+            count++;
+        }
+        return swapsTaken;
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        int[] arr = new int[n];
+
+        String[] arrItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int i = 0; i < n; i++) {
+            int arrItem = Integer.parseInt(arrItems[i]);
+            arr[i] = arrItem;
+        }
+
+        int res = minimumSwaps(arr);
+
+        System.out.println(String.valueOf(res));
+        System.out.println("");
+
+        scanner.close();
+    }
 }
