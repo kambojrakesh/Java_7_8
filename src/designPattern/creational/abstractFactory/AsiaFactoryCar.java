@@ -1,8 +1,5 @@
-package designPattern.creational.abstractFactory.location;
+package designPattern.creational.abstractFactory;
 
-import designPattern.creational.abstractFactory.parent.Car;
-import designPattern.creational.abstractFactory.type.LuxaryFactoryCar;
-import designPattern.creational.abstractFactory.type.MiniFactoryCar;
 
 public class AsiaFactoryCar{
 	public static Car buildCar(String type) {

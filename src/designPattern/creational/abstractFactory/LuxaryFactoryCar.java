@@ -1,6 +1,5 @@
-package designPattern.creational.abstractFactory.type;
+package designPattern.creational.abstractFactory;
 
-import designPattern.creational.abstractFactory.parent.Car;
 
 public class LuxaryFactoryCar extends Car{
 

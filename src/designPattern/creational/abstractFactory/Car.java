@@ -1,4 +1,4 @@
-package designPattern.creational.abstractFactory.parent;
+package designPattern.creational.abstractFactory;
 
 
 public abstract class Car {
