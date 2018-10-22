@@ -1,0 +1,50 @@
+https://www.youtube.com/watch?v=8til0Ej5c80&list=PLcow8_btriE0fB-UarDDFauM4mS5nsc1F
+https://www.youtube.com/watch?v=DGmmmtPnnnA&index=5&list=PLAVQHVM-WUoRgLO0LeJsQ3OIl3tUpyfZU
+https://www.youtube.com/watch?v=51KeZazThyI&list=PLTZbNwgO5ebr1O4i3CI9XHLJmiKBRRZsL
+
+public class Test extends T{
+    public static void main(String[] args) {
+    	System.out.println(T.x);
+    	
+    }
+}
+class T {
+	 static final int x=10;
+	 static {
+		 System.out.println("Control inside static");
+	 }
+}
+
+
+==================================
+
+public class Test {
+	
+
+	
+
+    public static void main(String[] args) throws ParseException {
+    	SimpleDateFormat ds=new SimpleDateFormat("dd/MM/yyyy");
+    	
+    	Date d=ds.parse("-12/-02/2018");
+    	
+    	System.out.println(d);
+    
+    }
+}
+
+=======================================================
+
+Java Tricky Program 3 - StackOverflowError
+
+public class Test {
+	
+	Test t=new Test();
+    
+	Test() {
+		System.out.println("Test");
+	}
+    public static void main(String[] args) {
+    	Test t=new Test();   	
+    }
+}
