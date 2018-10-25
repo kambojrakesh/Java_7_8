@@ -48,3 +48,20 @@ public class Test {
     	Test t=new Test();   	
     }
 }
+
+=================
+
+
+
+
+public class Test {
+	
+
+    public static void main(String[] args) {
+    	Integer i=new Integer(null);
+    	String s=new String(null);//multiple constuctor 
+    	
+    	
+    }
+
+}
