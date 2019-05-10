@@ -1,5 +1,7 @@
+package java7.threads;
 
-public class Test{
+
+public class DeadLocks{
 	
     public static void main(String[] args)  {
     	final String s1 = "resource1";
