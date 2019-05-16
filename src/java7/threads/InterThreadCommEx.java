@@ -1,14 +1,17 @@
 package java7.threads;
 class Worker4{
-	int amount = 10000;
+	 int amount = 10000;
 	
 	 synchronized void withdrawAmount(int i){
+		 if(i > amount){
+			 try{ wait(); }catch(Exception e){}  
+		 }
+		 
 		if(i > amount){
 			System.out.println("Amount is less :: " + amount );
-			try{wait();}catch(Exception e){}  
 		}
 		amount = amount - i;
-		System.out.println("Amount withdrawn : " + i );
+		System.out.println("Amount withdrawn : " + amount );
 		
 	}
 
