@@ -1,5 +1,5 @@
-import java.util.Iterator;
-import java.util.TreeSet;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Test{
@@ -7,21 +7,19 @@ public class Test{
 	
     public static void main(String[] args)  {
     	
-			Test.check();
-			Test.check1();
+    	int h = 1;
+    	HashMap hm=new HashMap();
+    	check(hm, h);
+    	System.out.println(hm);
+    	System.out.println(h);
 		
     }
-    static int check1() {
-		
-		
-		return 0;
-		
-}
+    
 
-	static int check() {
-		
-		
-		return 0;
+	static void check(Map hm, int h) {
+		hm.put(1, 2);
+		h = 2;
+		hm = null;
 			
 	}
 		 
