@@ -1,3 +1,6 @@
+https://beginnersbook.com/2017/10/java-8-stream-collectors-class-with-examples/
+https://stackify.com/streams-guide-java-8/
+
 Method reference is a shorthand notation of a lambda expression to call a method.
 
 Lambda expression - str -> System.out.println(str)
@@ -13,7 +16,7 @@ Four types of method references
 
 
 ------------------------------------------------------------------------------------------------
-https://beginnersbook.com/2017/10/java-8-stream-collectors-class-with-examples/
+
 
 Important features:
 	Lambda Expression
@@ -177,14 +180,16 @@ allMatch, anyMatch, and noneMatch:-
 	
 	
 	
+
+============================
 	
-	    Integer latestEmpId = empList.stream()
-      .mapToInt(Employee::getId)
-      .max()
-      .orElseThrow(NoSuchElementException::new);
+Integer latestEmpId = empList.stream()
+.mapToInt(Employee::getId)
+.max()
+.orElseThrow(NoSuchElementException::new);
 	  
 	  
-	  
+============================	  
 IntStream.of() for creating the IntStream:
 
 IntStream = IntStream.of(1, 2, 3);
@@ -196,8 +201,68 @@ IntStream = IntStream.range(10, 20)
 Stream<Integer>  = Stream.of(1, 2, 3)
 
 
+============================
+Join:-
+
+String empNames = empList.stream()
+      .map(Employee::getName)
+      .collect(Collectors.joining(", "))
+      .toString();
+	  
+	  
+Group by -
+
+groupingBy() offers advanced partitioning – where we can partition the stream into more than just two groups.
+
+Map<Character, List<Employee>> groupByAlphabet = empList.stream().collect(Collectors.groupingBy(e -> new Character(e.getName().charAt(0))));
 
 
+Map<Character, List<Integer>> idGroupedByAlphabet = empList.stream().collect(
+      Collectors.groupingBy(e -> new Character(e.getName().charAt(0)),
+        Collectors.mapping(Employee::getId, Collectors.toList())));
+		
+==============================----------------------==============================================================
+Parallel Streams-
+
+   Employee[] arrayOfEmps = {
+      new Employee(1, "Jeff Bezos", 100000.0), 
+      new Employee(2, "Bill Gates", 200000.0), 
+      new Employee(3, "Mark Zuckerberg", 300000.0)
+    };
+
+    List<Employee> empList = Arrays.asList(arrayOfEmps);
+    
+    empList.stream().parallel().forEach(e -> e.salaryIncrement(10.0));
+
+
+
+
+	  
+==========================================================================================================================================
+
+
+Stream Iterate - iterate() takes two parameters: an initial value, called seed element and a function which generates next element using the previous value. iterate(), by design, is stateful and hence may not be useful in parallel streams:
+
+    Stream<Integer> evenNumStream = Stream.iterate(2, i -> i * 2);
+
+    List<Integer> collect = evenNumStream
+      .limit(5)
+      .collect(Collectors.toList());
+	  
+	  
+===========================================================================================================================================
+
+Generate - We provide a Supplier to generate() which gets called whenever new stream elements need to be generated:
+
+ Stream.generate(Math::random)
+      .limit(5)
+      .forEach(System.out::println)
+	  
+	  Here, we pass Math::random() as a Supplier, which returns the next random number.
+	  
+	  
+	  
+	  
 
 
 
