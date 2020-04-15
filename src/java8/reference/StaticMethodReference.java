@@ -1,29 +1,17 @@
 package java8.reference;
 
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.*;
+import java.util.function.BiFunction;
 
-
-public class StaticMethodReference  {
-	static void print(int i){
-		System.out.println("Hello check :: "+i);
+class Multiplication {
+	public static int multiply(int a, int b) {
+		return a * b;
 	}
-   public static void main(String args[]){
-	  List<Integer> al=Arrays.asList(12,1,3,14,19,01,03);
-	  //normal
-	  for(int no:al){
-		  //print(no);
-	  }
+}
 
-	  //lambda
-	  /*al.forEach(
-		a1->print(a1)
-	   );*/
-
-	  //reference
-	  al.forEach(StaticMethodReference::print);
-	   
-   }
+public class StaticMethodReference {
+	public static void main(String[] args) {
+		BiFunction<Integer, Integer, Integer> product = Multiplication::multiply;
+		int pr = product.apply(11, 5);
+		System.out.println("Product of given number is: " + pr);
+	}
 }

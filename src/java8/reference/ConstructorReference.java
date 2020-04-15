@@ -1,18 +1,18 @@
 package java8.reference;
 
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.*;
-
-
-public class ConstructorReference  {
-	static void print(int i){
-		System.out.println("Hello check :: "+i);
-	}
-   public static void main(String args[]){
-	  List<Integer> al=Arrays.asList(12,1,3,14,19,01,03);
-   
-   }
+@FunctionalInterface 
+interface MyInterface{  
+    Hello display(String say);  
+}  
+class Hello{  
+    public Hello(String say){  
+        System.out.print(say);  
+    }  
+}  
+public class ConstructorReference {  
+    public static void main(String[] args) { 
+    	//Method reference to a constructor
+        MyInterface ref = Hello::new;  
+        ref.display("Hello World!");  
+    }  
 }
-///https://dzone.com/articles/methodreference

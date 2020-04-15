@@ -25,7 +25,6 @@ class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Override
 	public int compareTo(Student s) {
 		if(s.age > age)
 			return 1;

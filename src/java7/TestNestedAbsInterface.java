@@ -1,7 +1,7 @@
-package p;
+package java7;
 
-import p.TestOuter.TestInner;
-import p.TestOuter.TestInnerClass;
+import java7.TestOuter.TestInner;
+import java7.TestOuter.TestInnerClass;
  
 interface TestOuter{
 	

@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-class Student implements Comparable<Student>{
+class Student2 implements Comparable<Student2>{
 	
 	int age;
 	String name;
-	Student(int age,String name){
+	Student2(int age,String name){
 		 this.age=age;
 		 this.name=name;
 	}
@@ -24,8 +24,7 @@ class Student implements Comparable<Student>{
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Override
-	public int compareTo(Student s) {
+	public int compareTo(Student2 s) {
 		if(s.age > age)
 			return 1;
 		else if(s.age < age)
@@ -37,13 +36,13 @@ class Student implements Comparable<Student>{
 
 public class ComparableTest {
 	public static void main(String arg[]){
-		ArrayList<Student> ar = new ArrayList();
-		ar.add(new Student(29,"Rakesh"));
-		ar.add(new Student(22,"rikki"));
-		ar.add(new Student(28,"vikki"));
-		ar.add(new Student(26,"anju"));
+		ArrayList<Student2> ar = new ArrayList();
+		ar.add(new Student2(29,"Rakesh"));
+		ar.add(new Student2(22,"rikki"));
+		ar.add(new Student2(28,"vikki"));
+		ar.add(new Student2(26,"anju"));
 		Collections.sort(ar);
-		for(Student s:ar){
+		for(Student2 s:ar){
 			System.out.println(s.getAge() + "==" + s.getName());
 		}
 	}

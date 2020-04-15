@@ -1,36 +1,20 @@
 package java8.reference;
 
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.*;
+@FunctionalInterface
+interface MyInterface1 {
+	void display();
+}
 
-
-public class InstanceMethodReference  {
-	static void print(int i){
-		System.out.println("Hello check :: "+i);
+public class InstanceMethodReference {
+	public void myMethod() {
+		System.out.println("Instance Method");
 	}
-   public static void main(String args[]){
-	  List<Integer> al=Arrays.asList(12,1,3,14,19,2,63);
-	  
-	  MyComparator myCom = new MyComparator();
-	  
-	 /* Collections.sort(al, (a,b)->myCom.compare(a, b));*/
-	  
-	  Collections.sort(al,myCom::compare);
-	  
-	 /* al.forEach(
-			  a1->System.out.println(a1)
-			  );*/
-	  
-	  al.forEach(System.out::println);
-	  
-	  
-	   
-   }
-   private static class MyComparator{
-	   public int compare(final Integer a,final Integer b){
-		   return a.compareTo(b);
-	   }
-   }
+
+	public static void main(String[] args) {
+		InstanceMethodReference obj = new InstanceMethodReference();
+		// Method reference using the object of the class
+		MyInterface1 ref = obj::myMethod;
+		// Calling the method of functional interface
+		ref.display();
+	}
 }
