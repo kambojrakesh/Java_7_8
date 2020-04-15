@@ -146,12 +146,54 @@ Stream<List<String>> to a simpler Stream<String>
 -------------------------------------------------------------------------------------------
 
 
-All intermediate operations are lazy, so they’re not executed until a result of a processing is actually needed.	  
+All intermediate operations are lazy, so they’re not executed until a result of a processing is actually needed.
 
+-------------------------------------------------------------------------------------------
 
+Soretd:-
 
+  List<Employee> employees = empList.stream()
+      .sorted((e1, e2) -> e1.getName().compareTo(e2.getName()))
+      .collect(Collectors.toList());
 
+Min & Max :-
 
+   Employee firstEmp = empList.stream()
+      .min((e1, e2) -> e1.getId() - e2.getId())
+      .orElseThrow(NoSuchElementException::new);
+
+Distinct:-
+
+    List<Integer> intList = Arrays.asList(2, 5, 3, 2, 4, 3);
+    List<Integer> distinctIntList = intList.stream().distinct().collect(Collectors.toList());	  
+
+allMatch, anyMatch, and noneMatch:-
+
+    List<Integer> intList = Arrays.asList(2, 4, 5, 6, 8);
+    
+    boolean allEven = intList.stream().allMatch(i -> i % 2 == 0);
+    boolean oneEven = intList.stream().anyMatch(i -> i % 2 == 0);
+    boolean noneMultipleOfThree = intList.stream().noneMatch(i -> i % 3 == 0);
+	
+	
+	
+	
+	    Integer latestEmpId = empList.stream()
+      .mapToInt(Employee::getId)
+      .max()
+      .orElseThrow(NoSuchElementException::new);
+	  
+	  
+	  
+IntStream.of() for creating the IntStream:
+
+IntStream = IntStream.of(1, 2, 3);
+
+IntStream.range():
+
+IntStream = IntStream.range(10, 20)
+
+Stream<Integer>  = Stream.of(1, 2, 3)
 
 
 
