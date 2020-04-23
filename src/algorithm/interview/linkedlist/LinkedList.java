@@ -1,4 +1,4 @@
-package algorithm.interview;
+package algorithm.interview.linkedlist;
 
 public class LinkedList {
 	private Node head;
