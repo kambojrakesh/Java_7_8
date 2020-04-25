@@ -1,6 +1,6 @@
 package algorithm.interview.linkedlist;
 
-public class DeleteLinkedList {
+public class DeleteLastLinkedList {
 
 	public static void main(String[] args) {
 		LinkedLs ls = new LinkedLs();
