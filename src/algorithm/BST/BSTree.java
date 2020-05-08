@@ -54,8 +54,8 @@ public class BSTree {
 		bst.add(4);
 		bst.add(5);
 		
-		//traverseInOrder(bst.current);		
-		System.out.println(bst.find(10));		
+		traverseInOrder(bst.current);		
+		//System.out.println(bst.find(10));		
 	}
 
 	private boolean find(int i) {
